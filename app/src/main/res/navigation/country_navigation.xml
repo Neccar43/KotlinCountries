@@ -7,16 +7,20 @@
 
     <fragment
         android:id="@+id/countryFragment"
-        android:name="com.abdulkerim.kotlincountries.CountryFragment"
+        android:name="com.abdulkerim.kotlincountries.view.CountryFragment"
         android:label="fragment_country"
         tools:layout="@layout/fragment_country" >
         <action
             android:id="@+id/action_countryFragment_to_feedFragment"
             app:destination="@id/feedFragment" />
+        <argument
+            android:name="countryUid"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.abdulkerim.kotlincountries.FeedFragment"
+        android:name="com.abdulkerim.kotlincountries.view.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" >
         <action

@@ -1,7 +1,8 @@
-package com.abdulkerim.kotlincountries
+package com.abdulkerim.kotlincountries.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.abdulkerim.kotlincountries.R
 
 
 class MainActivity : AppCompatActivity() {

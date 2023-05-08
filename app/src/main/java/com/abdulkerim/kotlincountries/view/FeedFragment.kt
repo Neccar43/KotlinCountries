@@ -1,4 +1,4 @@
-package com.abdulkerim.kotlincountries
+package com.abdulkerim.kotlincountries.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,7 +15,7 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentFeedBinding.inflate(inflater,container,false)
+        binding = FragmentFeedBinding.inflate(inflater,container,false)
 
 
 
