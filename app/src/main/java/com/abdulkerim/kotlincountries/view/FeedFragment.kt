@@ -33,6 +33,15 @@ private val countryAdapter=CountryAdapter(arrayListOf())
         viewModel=ViewModelProvider(this).get(FeedViewModel::class.java)
         viewModel.refreshData()
 
+        //swipe işlemi
+        binding.refreshLayout.setOnRefreshListener {
+            binding.countryProgressBar.visibility=View.VISIBLE
+            binding.countryErrorText.visibility=View.GONE
+            binding.countryRecycler.visibility=View.GONE
+            viewModel.refreshData()
+            binding.refreshLayout.isRefreshing=false
+        }
+
 
         observeLiveData()
 
