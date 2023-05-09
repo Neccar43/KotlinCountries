@@ -7,6 +7,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.abdulkerim.kotlincountries.databinding.CountryRowBinding
 import com.abdulkerim.kotlincountries.model.Country
+import com.abdulkerim.kotlincountries.util.downloadFromURL
+import com.abdulkerim.kotlincountries.util.placeHolderProgressBar
 import com.abdulkerim.kotlincountries.view.FeedFragmentDirections
 
 class CountryAdapter(private val countryList: ArrayList<Country>) :
@@ -22,7 +24,9 @@ class CountryAdapter(private val countryList: ArrayList<Country>) :
     }
 
     override fun onBindViewHolder(holder: CountryHolder, position: Int) {
-       // holder.binding.imageView
+        holder.binding.imageView.downloadFromURL(countryList.get(position).imageUrl,
+            placeHolderProgressBar(holder.itemView.context)
+        )
         holder.binding.feedNameText.text=countryList.get(position).countryName
         holder.binding.feedRegionText.text=countryList.get(position).countryRegion
 
