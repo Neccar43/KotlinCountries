@@ -38,7 +38,7 @@ private val countryAdapter=CountryAdapter(arrayListOf())
             binding.countryProgressBar.visibility=View.VISIBLE
             binding.countryErrorText.visibility=View.GONE
             binding.countryRecycler.visibility=View.GONE
-            viewModel.refreshData()
+            viewModel.refreshFromAPI()
             binding.refreshLayout.isRefreshing=false
         }
 

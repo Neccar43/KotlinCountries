@@ -31,7 +31,7 @@ class CountryAdapter(private val countryList: ArrayList<Country>) :
         holder.binding.feedRegionText.text=countryList.get(position).countryRegion
 
         holder.binding.countryLinerLayout.setOnClickListener {
-            val action=FeedFragmentDirections.actionFeedFragmentToCountryFragment(1)
+            val action=FeedFragmentDirections.actionFeedFragmentToCountryFragment(countryList.get(position).uid)
             it.findNavController().navigate(action)
         }
 
