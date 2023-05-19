@@ -1,6 +1,5 @@
 package com.abdulkerim.kotlincountries.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData

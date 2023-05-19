@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.abdulkerim.kotlincountries.R
 import com.abdulkerim.kotlincountries.databinding.FragmentCountryBinding
 import com.abdulkerim.kotlincountries.util.downloadFromURL
 import com.abdulkerim.kotlincountries.util.placeHolderProgressBar
@@ -21,7 +23,7 @@ class CountryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCountryBinding.inflate(inflater,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_country,container,false)
 
         val countryId=args.countryUid
         viewModel=ViewModelProvider(this).get(CountryViewModel::class.java)
@@ -34,19 +36,20 @@ class CountryFragment : Fragment() {
     }
 
     private fun observeLiveData(){
-        viewModel.country.observe(viewLifecycleOwner,Observer{
+        viewModel.country.observe(viewLifecycleOwner) {
             it?.let {
-                binding.countryNameText.text=it.countryName
-                binding.countryCapitalText.text=it.countryCapital
-                binding.countryCurrencyText.text=it.countryCurrency
-                binding.countryRegionText.text=it.countryRegion
-                binding.countryLanguageText.text=it.countryLanguage
-                context?.let {it2->
+                binding.country=it
+                /*binding.countryNameText.text = it.countryName
+                binding.countryCapitalText.text = it.countryCapital
+                binding.countryCurrencyText.text = it.countryCurrency
+                binding.countryRegionText.text = it.countryRegion
+                binding.countryLanguageText.text = it.countryLanguage
+                context?.let { it2 ->
                     binding.countryImage.downloadFromURL(it.imageUrl, placeHolderProgressBar(it2))
-                }
+                }*/
 
             }
-        })
+        }
     }
 
 
